@@ -1,0 +1,2 @@
+# ng-sp-peoplepicker
+An Angular directive that can be used to create a Sharepoint People Picker for custom pages and custom forms. The directive uses the People.asmx webservice to get directory information. The directive is configurable and can take in the URL of the site where you want to look up user information, if it should allow multiple users to be selected, the limit of users that it should return, and the ng-model that it will return the selected users to. The directive uses Bootstrap 3 and Fuel UX but can be easily swapped out if needed.
