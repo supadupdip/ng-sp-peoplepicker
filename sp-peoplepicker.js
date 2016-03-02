@@ -9,7 +9,8 @@ angular.module('devPortal')
 				userObject: '=ngModel',
 				allowMultiple: '=allowMultiple',
 				returnLimit: '=returnLimit',
-				siteURL: '@siteUrl'
+				siteURL: '@siteUrl',
+				allowTypeahed: '=allowTypeahed'
 			},
 			link: function($scope, $element, $attrs, ngModelCtrl){
 					$element.find('.searchTextInput').on('keyup', function($event){

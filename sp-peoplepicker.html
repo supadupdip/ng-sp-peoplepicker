@@ -7,11 +7,11 @@
 		      <span class="glyphicon glyphicon-close" ng-click="removeUser(pickerUser)">
 		        <span class="sr-only">Remove</span>
 		      </span>
-		    </li><!--
-		    <li ng-show="isEmpty" class="btn btn-default">
-		      <span>Add a user by clicking the browse button on the right</span>
-		    </li>-->
-		    <li class="pillbox-input-wrap btn-group">
+		    </li>
+		    <li ng-show="isEmpty && !allowTypeahed" class="btn btn-default">
+		      <span>Search for a user by clicking the browse button on the right</span>
+		    </li>
+		    <li ng-show="allowTypeahead" class="pillbox-input-wrap btn-group">
 		      <input type="text" class="form-control dropdown-toggle pillbox-add-item quickSearchInput" ng-model="instantSearchText" ng-model-options="{ updateOn: 'default keyup', debounce: { 'default': 500, 'keyup': 500 } }" placeholder="Last name, First name">
 		      <ul class="suggest dropdown-menu" role="menu" ng-show="instantSearchText" style="visibility: visible; display: inline;" data-toggle="dropdown" data-flip="auto">
 		      	<li ng-repeat="person in quickResults" ng-click="addUser(person)">{{person.displayName}}</li>
