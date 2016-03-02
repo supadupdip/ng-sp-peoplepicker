@@ -1,0 +1,55 @@
+<div class="row">
+	<div class="col-xs-11">
+		<div class="pillbox">
+		  <ul class="clearfix pill-group">
+		    <li class="btn btn-default pill" ng-repeat="pickerUser in userObject track by $index">
+		      <span>{{pickerUser.userName}}</span>
+		      <span class="glyphicon glyphicon-close" ng-click="removeUser(pickerUser)">
+		        <span class="sr-only">Remove</span>
+		      </span>
+		    </li><!--
+		    <li ng-show="isEmpty" class="btn btn-default">
+		      <span>Add a user by clicking the browse button on the right</span>
+		    </li>-->
+		    <li class="pillbox-input-wrap btn-group">
+		      <input type="text" class="form-control dropdown-toggle pillbox-add-item quickSearchInput" ng-model="instantSearchText" ng-model-options="{ updateOn: 'default keyup', debounce: { 'default': 500, 'keyup': 500 } }" placeholder="Last name, First name">
+		      <ul class="suggest dropdown-menu" role="menu" ng-show="instantSearchText" style="visibility: visible; display: inline;" data-toggle="dropdown" data-flip="auto">
+		      	<li ng-repeat="person in quickResults" ng-click="addUser(person)">{{person.displayName}}</li>
+		      </ul>
+		    </li>
+		  </ul>
+		</div>
+	</div>
+	<div class="col-xs-1">
+		<button type="button" class="btn btn-default pull-right" ng-class="{'btn-info': searchActive}" title="Search for User" ng-click="toggleSearch(searchActive)"><i class="glyphicon glyphicon-book"></i></button>
+	</div>
+</div>
+<div class="user-search-area" ng-show="searchActive">
+	<hr/>
+	<div class="row">
+		<div class="col-xs-12">
+					<div class="input-group" style="margin-bottom: 10px;">
+						<div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+						<input type="text" class="form-control searchTextInput" ng-model="searchText" placeholder="Search for a user...">
+					      <span class="input-group-btn">
+					      	<button type="button" class="btn btn-default" ng-show="searchText.length" ng-click="clearInput($event)"><i class="glyphicon glyphicon-remove"></i></button>
+					        <button type="button" class="btn btn-primary" ng-click="startSearch()">Search</button>
+					      </span>
+					</div>
+			<div ng-show="returnedPeople.length">
+
+				<ul class="list-group">
+				  <li class="list-group-item" ng-repeat="person in returnedPeople">{{person.displayName}}<button type="button" class="btn btn-default btn-xs pull-right" has-pop-over user="person"></button><button type="button" class="btn btn-default btn-xs pull-right" ng-click="addUser(person)"><i class="glyphicon glyphicon-plus"></i></button></li>
+				<li class="list-group-item disabled"><a href="javascript: void(0);" ng-click="clearInput($event)">Clear search results</a><p class="pull-right">Showing top {{returnLimit}} results.</p></li>
+				</ul>
+
+			</div>
+			<ul class="list-group" ng-show="noResults">
+			  <li class="list-group-item">No results found</li>
+			</ul>
+			<div class="alert alert-danger" ng-show="error">There was an error loading data: {{errorMessage}}</div>
+
+		</div>
+	</div>
+
+</div>
