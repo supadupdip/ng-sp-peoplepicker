@@ -9,7 +9,7 @@ General Usage
 You can also use it as an element if you're worried about browser compatibility with browsers that don't recognize custom elements.
 
 ~~~~HTML
-<sp-people-picker ng-model="item.POCs" allow-multiple="true" return-limit="50" site-url="https://sharepoint.com/site" allow-typeahead="true">
+<div sp-people-picker ng-model="item.POCs" allow-multiple="true" return-limit="50" site-url="https://sharepoint.com/site" allow-typeahead="true">
 ~~~~
 
 The directive takes in the following
