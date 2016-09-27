@@ -10,7 +10,7 @@ angular.module('devPortal')
 				allowMultiple: '=allowMultiple',
 				returnLimit: '=returnLimit',
 				siteURL: '@siteUrl',
-				allowTypehead: '=allowTypehead'
+				allowTypeahead: '=allowTypeahead'
 			},
 			link: function($scope, $element, $attrs, ngModelCtrl){
 					$element.find('.searchTextInput').on('keyup', function($event){
