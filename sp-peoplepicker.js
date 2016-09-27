@@ -10,7 +10,7 @@ angular.module('devPortal')
 				allowMultiple: '=allowMultiple',
 				returnLimit: '=returnLimit',
 				siteURL: '@siteUrl',
-				allowTypeahed: '=allowTypeahed'
+				allowTypehead: '=allowTypehead'
 			},
 			link: function($scope, $element, $attrs, ngModelCtrl){
 					$element.find('.searchTextInput').on('keyup', function($event){
@@ -55,7 +55,7 @@ angular.module('devPortal')
 					$scope.getSearchResults($scope.instantSearchText, 5, true);
 				}
 				$scope.checkForEmpty = function(thisPerson){
-					if(thisPerson.length >0){
+					if(thisPerson){
 						return false;
 					}
 					else{
